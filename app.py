@@ -1,6 +1,7 @@
 from lib.database_connection import DatabaseConnection
 from lib.artist_repository import ArtistRepository
 from lib.album_repository import AlbumRepository
+from lib.album import Album
 
 # Connect to the database
 
@@ -38,6 +39,9 @@ for album in albums:
 
 album = album_repository.find(1)
 print(album)
+
+new_album = album_repository.create(Album(None,"Trome Le Monde", 1991, 1))
+
 """
 connection.seed("seeds/book_store.sql")
 book_repository = BookRepository(connection)
