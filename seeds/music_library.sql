@@ -23,6 +23,9 @@ CREATE TABLE albums (
     title VARCHAR(255),
     release_year INTEGER,
     artist_id INTEGER
+    constraint fk_artist foreign key(artist_id)
+        references artists(id) 
+        on delete cascade 
 );
 
 -- Finally, we add any records that are needed for the tests to run
