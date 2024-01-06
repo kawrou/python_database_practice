@@ -62,6 +62,7 @@ def test_create_album(db_connection):
         Album(13,'Trome Le Monde', 1991, 1),
     ]
 
+
 def test_delete_album(db_connection):
     db_connection.seed("seeds/music_library.sql")
     repository = AlbumRepository(db_connection)

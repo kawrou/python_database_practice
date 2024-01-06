@@ -33,14 +33,20 @@ for artist in artists:
 
 album_repository = AlbumRepository(connection)
 
-albums = album_repository.all()
-for album in albums:
-    print(album)
+
 
 album = album_repository.find(1)
 print(album)
 
 new_album = album_repository.create(Album(None,"Trome Le Monde", 1991, 1))
+albums = album_repository.all()
+for album in albums:
+    print(album)
+
+delete_album = album_repository.delete(13)
+albums = album_repository.all()
+for album in albums:
+    print(album)
 
 """
 connection.seed("seeds/book_store.sql")
