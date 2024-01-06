@@ -4,10 +4,11 @@
 -- database state, and that tests don't interfere with each other.
 
 -- First, we must delete (drop) all our tables
-DROP TABLE IF EXISTS artists;
-DROP SEQUENCE IF EXISTS artists_id_seq;
 DROP TABLE IF EXISTS albums;
 DROP SEQUENCE IF EXISTS albums_id_seq;
+DROP TABLE IF EXISTS artists;
+DROP SEQUENCE IF EXISTS artists_id_seq;
+
 
 -- Then, we recreate them
 CREATE SEQUENCE IF NOT EXISTS artists_id_seq;
@@ -22,8 +23,8 @@ CREATE TABLE albums (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255),
     release_year INTEGER,
-    artist_id INTEGER
-    constraint fk_artist foreign key(artist_id)
+    artist_id INTEGER,
+    constraint fk_artist FOREIGN KEY(artist_id)
         references artists(id) 
         on delete cascade 
 );
@@ -46,5 +47,4 @@ INSERT INTO albums (title, release_year, artist_id) VALUES ('Baltimore', 1978, 4
 INSERT INTO albums (title, release_year, artist_id) VALUES ('Here Comes the Sun', 1971, 4);
 INSERT INTO albums (title, release_year, artist_id) VALUES ('Fodder on My Wings', 1982, 4);
 INSERT INTO albums (title, release_year, artist_id) VALUES ('Ring Ring', 1973, 2);
-INSERT INTO albums (title, release_year, artist_id) VALUES ('ABBA', 1968, 2);
 
