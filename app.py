@@ -31,10 +31,13 @@ for artist in artists:
     print(artist)
 
 album_repository = AlbumRepository(connection)
+
 albums = album_repository.all()
 for album in albums:
     print(album)
 
+album = album_repository.find(1)
+print(album)
 """
 connection.seed("seeds/book_store.sql")
 book_repository = BookRepository(connection)
