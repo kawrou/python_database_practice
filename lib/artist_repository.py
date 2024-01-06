@@ -15,7 +15,6 @@ class ArtistRepository:
     # Append the Artist class objects into the artists list
     def all(self):
         rows = self._connection.execute('SELECT * from artists')
-        print(rows)
         artists = []
         for row in rows:
             item = Artist(row["id"], row["name"], row["genre"])
