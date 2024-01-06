@@ -32,3 +32,7 @@ class AlbumRepository:
             album.release_year, 
             album.artist_id])
         return None
+    
+    def delete(self, album_id):
+        self._connection.execute('DELETE FROM albums WHERE id = %s', [album_id])
+        return None
