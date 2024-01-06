@@ -1,7 +1,6 @@
 from lib.database_connection import DatabaseConnection
 from lib.artist_repository import ArtistRepository
-from lib.book_repository import BookRepository
-
+from lib.album_repository import AlbumRepository
 
 # Connect to the database
 
@@ -31,7 +30,10 @@ artists = artist_repository.all()
 for artist in artists:
     print(artist)
 
-
+album_repository = AlbumRepository(connection)
+albums = album_repository.all()
+for album in albums:
+    print(album)
 
 """
 connection.seed("seeds/book_store.sql")
