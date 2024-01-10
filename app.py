@@ -86,12 +86,6 @@ class Application():
             album_repository.delete(album_id)
             print("Album deleted successfully") 
 
-        repository = ArtistRepository(self._connection)
-
-        artist = repository.find_with_albums(1)
-        artist.id
-        artist.albums
-
 
 if __name__ == '__main__':
     app = Application()
